@@ -1,68 +1,35 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <link rel="icon" href="./favicon.ico">
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>涼風町の小さな気づきと未来のアイデア帳 - 癒しと提案が集まる場所</title>
 <link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@600;800&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
 <style>
-:root{
-  --ink:#1b1f1d; --board:#23282a; --board-2:#2c3234;
-  --paper:#eef0e4; --paper-2:#e3e6d8;
-  --amber:#e8a33d; --amber-deep:#c9821f;
-  --teal:#2f7a6b; --teal-deep:#22594e;
-  --clay:#c1502f; --violet:#6d5aa8; --violet-deep:#4d3e80;
-  --line:#3a4143; --line-light:#d8dcc9;
-}
+:root{--ink:#1b1f1d;--board:#23282a;--board-2:#2c3234;--paper:#eef0e4;--paper-2:#e3e6d8;--amber:#e8a33d;--amber-deep:#c9821f;--teal:#2f7a6b;--teal-deep:#22594e;--clay:#c1502f;--violet:#6d5aa8;--violet-deep:#4d3e80;--line:#3a4143;--line-light:#d8dcc9;}
 *{margin:0;padding:0;box-sizing:border-box;overflow-wrap:break-word;}
 html{scroll-behavior:smooth;}
 body{font-family:"Zen Kaku Gothic New",sans-serif;background:var(--paper);color:var(--ink);line-height:1.7;font-size:16px;}
-h1,h2,h3,h4,.brand{font-family:"Klee One","Zen Kaku Gothic New",sans-serif;}
-.mono{font-family:"JetBrains Mono",monospace;}
-img{max-width:100%;display:block;border-radius:4px;}
+h1,h2,h3,.brand{font-family:"Klee One","Zen Kaku Gothic New",sans-serif;}
 button{cursor:pointer;font-family:inherit;}
-.topbar{position:sticky;top:0;z-index:999;background:var(--board);border-bottom:4px solid var(--amber);
-  padding:14px 22px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;}
-.brand{color:var(--paper);font-size:20px;font-weight:800;display:flex;align-items:center;gap:10px;line-height:1.2;}
+.topbar{position:sticky;top:0;z-index:999;background:var(--board);border-bottom:4px solid var(--amber);padding:14px 22px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;}
+.brand{color:var(--paper);font-size:20px;font-weight:800;display:flex;align-items:center;gap:10px;}
 .brand .city{font-size:11px;font-weight:700;letter-spacing:.18em;color:var(--amber);display:block;}
 .brand .town{font-size:22px;font-weight:900;letter-spacing:.03em;display:block;}
 .brand span.dot{width:9px;height:9px;border-radius:50%;background:var(--teal);box-shadow:0 0 0 3px rgba(47,122,107,.3);flex-shrink:0;}
 nav{display:flex;gap:8px;flex-wrap:wrap;align-items:center;}
-nav button{border:1.5px solid var(--line);background:var(--board-2);color:var(--paper);padding:9px 16px;border-radius:6px;
-  font-weight:700;font-size:13.5px;letter-spacing:.02em;transition:.15s;}
-nav button:hover{border-color:var(--amber);color:var(--amber);}
+nav button{border:1.5px solid var(--line);background:var(--board-2);color:var(--paper);padding:9px 16px;border-radius:6px;font-weight:700;font-size:13.5px;transition:.15s;}
 nav button.active{background:var(--amber);color:var(--ink);border-color:var(--amber);}
 .page{display:none;max-width:1160px;margin:0 auto;padding:36px 20px 80px;animation:fade .25s ease;}
 .page.active{display:block;}
 @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
-.card{background:var(--paper);border:1.5px solid var(--line-light);border-radius:10px;padding:26px 28px;margin-bottom:22px;box-shadow:0 3px 0 var(--line-light);}
-h1{font-size:28px;font-weight:800;margin-bottom:14px;}
-h2{font-size:19px;font-weight:800;margin-bottom:12px;}
-p{color:#33372f;}
-.hero{background:var(--board);border-radius:12px;padding:44px 32px;margin-bottom:26px;position:relative;overflow:hidden;}
-.hero-cta-row{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-top:20px;}
-.flow3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:6px;}
-.flow-step{background:var(--paper);border:1.5px dashed var(--line-light);border-radius:8px;padding:18px;text-align:center;}
-.big-btn{display:inline-flex;align-items:center;gap:8px;padding:13px 26px;border-radius:7px;border:none;background:var(--teal);color:#fff;font-weight:700;font-size:15px;box-shadow:0 4px 0 var(--teal-deep);transition:.12s;}
+.card{background:#fff;border:1.5px solid var(--line-light);border-radius:10px;padding:22px 24px;margin-bottom:18px;box-shadow:0 3px 0 var(--line-light);}
+.big-btn{display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border-radius:7px;border:none;background:var(--teal);color:#fff;font-weight:700;font-size:14px;box-shadow:0 4px 0 var(--teal-deep);transition:.12s;}
 .big-btn.amber{background:var(--amber);color:var(--ink);box-shadow:0 4px 0 var(--amber-deep);}
-.big-btn.ghost{background:var(--paper);color:var(--ink);border:1.5px solid var(--line-light);box-shadow:none;}
-.big-btn:disabled{opacity:.5;cursor:not-allowed;}
-.section-lead{display:flex;align-items:baseline;gap:10px;margin-bottom:14px;}
-.section-lead h2{margin-bottom:0;}
-.section-lead .tag{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--teal-deep);border:1px solid var(--teal);padding:2px 9px;border-radius:999px;}
-.map-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:16px;}
-.map-card, .update-card{border-radius:10px;padding:18px 20px;border:1.5px solid var(--line-light);position:relative;}
-.map-card{background:#fff;}
-.update-card{background:var(--paper-2);}
-.update-btn{border:none;background:var(--violet);color:#fff;font-weight:700;font-size:12px;padding:7px 14px;border-radius:6px;box-shadow:0 3px 0 var(--violet-deep);flex-shrink:0;}
-.accordion-item{border:1.5px solid var(--line-light);border-radius:10px;background:#fff;overflow:hidden;margin-bottom:10px;}
-.accordion-head{padding:14px 18px;display:flex;justify-content:space-between;align-items:center;cursor:pointer;background:#fff;font-weight:800;}
-.accordion-head.open{background:var(--board);color:var(--paper);}
-.accordion-body{display:none;padding:0 18px 18px;background:#fcfdf7;border-top:1px solid var(--line-light);}
-.accordion-body.show{display:block;}
-.idea-note{background:var(--paper);border-left:4px solid var(--teal);border-radius:6px;padding:11px 14px;margin-bottom:8px;}
-/* Hiroba styles */
+.big-btn.ghost{background:#fff;color:var(--ink);border:1.5px solid var(--line-light);box-shadow:none;}
+.flow3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
+.flow-step{background:#fdf6e3;border:1.5px dashed var(--line-light);border-radius:8px;padding:16px;text-align:center;}
+.photo-cta{background:linear-gradient(135deg,#2f7a6b 0%, #e8a33d 100%);border-radius:12px;padding:20px 22px;margin-bottom:18px;color:#fff;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
 .hiroba-post-card{background:#fff;border:1.5px solid var(--line-light);border-radius:12px;padding:16px;margin-bottom:14px;}
 .hiroba-header{display:flex;justify-content:space-between;font-size:12px;color:#666;flex-wrap:wrap;gap:4px}
 .hiroba-tag{background:#eef0e4;padding:3px 10px;border-radius:999px;font-size:11px;border:1px solid #ddd;}
@@ -71,335 +38,299 @@ p{color:#33372f;}
 .hiroba-tab.active{background:#2f7a6b;color:#fff;border-color:#2f7a6b;}
 .hiroba-form{background:#fff;border:2px solid var(--amber);border-radius:12px;padding:18px;margin-bottom:18px;}
 .year-header{font-size:14px;font-weight:900;margin:18px 0 8px;padding:6px 10px;background:#23282a;color:#fff;border-radius:6px;}
-.photo-cta{background:linear-gradient(135deg,#2f7a6b 0%, #e8a33d 100%);border-radius:12px;padding:22px 24px;margin-bottom:22px;color:#fff;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;box-shadow:0 6px 16px rgba(0,0,0,0.2);}
-.photo-cta h2{color:#fff;margin:0 0 4px 0;}
-.photo-cta p{color:#eef0e4;margin:0;font-size:13px;}
+.section-lead{display:flex;align-items:baseline;gap:10px;margin-bottom:12px;}
+.tag{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--teal-deep);border:1px solid var(--teal);padding:2px 9px;border-radius:999px;}
+@media(max-width:800px){.flow3{grid-template-columns:1fr;}}
 </style>
 </head>
 <body>
 <header class="topbar">
-  <div class="brand"><span class="dot"></span><div><span class="city">ASHIYA CITY / SUZUKAZE</span><span class="town">芦屋市 涼風町</span></div></div>
-  <nav>
-    <button class="active" onclick="showPage('home',this)">ホーム</button>
-    <button onclick="showPage('assist',this)">声を届ける</button>
-    <button onclick="showPage('tree',this)">声のボード</button>
-    <button onclick="showPage('hiroba',this)" style="background:#e8a33d;color:#1b1f1d;border-color:#e8a33d;">📸 みんなの広場</button>
-  </nav>
+<div class="brand"><span class="dot"></span><div><span class="city">ASHIYA CITY / SUZUKAZE</span><span class="town">芦屋市 涼風町</span></div></div>
+<nav>
+<button class="active" onclick="showPage('home',this)">ホーム</button>
+<button onclick="showPage('assist',this)">声を届ける</button>
+<button onclick="showPage('tree',this)">声のボード</button>
+<button onclick="showPage('hiroba',this)" style="background:#e8a33d;color:#1b1f1d;border-color:#e8a33d;">📸 みんなの広場</button>
+</nav>
 </header>
 <main>
 <section id="home" class="page active">
-  <div class="hero" style="background:#23282a;border-radius:12px;padding:36px 28px;margin-bottom:22px;">
-    <div style="color:#eef0e4;font-size:22px;font-weight:800;margin-bottom:8px;">芦屋市 涼風町<br>声とアイデアのプラットフォーム</div>
-    <p style="color:#cfd6c9;max-width:600px;font-size:14px;"><b>芦屋市 涼風町自治会</b> 公式プラットフォーム。涼風町への想い、ちょっとした気づき——そのまま書き込むだけでOK。あとはAIが読み取って整理します。</p>
-    <div class="hero-cta-row">
-      <button class="big-btn amber" onclick="showPage('assist', document.querySelector('nav button:nth-child(2)'))">✍ さっそく声を届けてみる</button>
-      <button class="big-btn" style="background:#eef0e4;color:#1b1f1d;" onclick="showPage('hiroba', document.querySelector('nav button:last-child'))">📸 写真を投稿する - みんなの広場</button>
-    </div>
-  </div>
+<div class="card" style="background:#23282a;color:#eef0e4;border:none;">
+<div style="font-size:22px;font-weight:800;margin-bottom:8px;">涼風町の小さな気づきと未来のアイデア帳</div>
+<p style="color:#cfd6c9;font-size:13px;">癒しも、提案も、気軽にポスト。普段の気づきがInstagramに自動投稿され、みんなでシェアされます。</p>
+<div style="margin-top:14px;display:flex;gap:10px;flex-wrap:wrap;">
+<button class="big-btn amber" onclick="showPage('assist', document.querySelector('nav button:nth-child(2)'))">✍ 声を届けてみる</button>
+<button class="big-btn" style="background:#eef0e4;color:#1b1f1d;" onclick="showPage('hiroba', document.querySelector('nav button:last-child'))">📸 写真を投稿する</button>
+</div>
+</div>
 
-  <!-- ★写真投稿ボタン：目立つように -->
-  <div class="photo-cta">
-    <div>
-      <h2>📸 写真を投稿してみよう - 涼風町 みんなの広場</h2>
-      <p>スマホから1分で投稿 → 自動で時系列・テーマ別に整理 → Instagramにも自動投稿 ✨</p>
-    </div>
-    <button class="big-btn" style="background:#fff;color:#1b1f1d;box-shadow:0 4px 0 #c9821f;" onclick="showPage('hiroba', document.querySelector('nav button:last-child'))">写真を投稿する ➔</button>
-  </div>
+<div class="photo-cta">
+<div>
+<h2 style="margin:0 0 4px 0;font-size:18px;">📸 写真を投稿してみよう</h2>
+<p style="margin:0;font-size:13px;color:#eef0e4;">スマホから1分で投稿 → 自動で時系列・テーマ別に整理 → Instagramにも自動投稿 ✨</p>
+</div>
+<button class="big-btn" style="background:#fff;color:#1b1f1d;" onclick="showPage('hiroba', document.querySelector('nav button:last-child'))">投稿する ➔</button>
+</div>
 
-  <!-- ★添付の使い方カードを5つのテーマの上に表示 -->
-  <div class="card" style="border:2px solid #e8a33d;background:#fffcf0;">
-    <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;margin-bottom:14px;">
-      <h2 style="margin:0;font-size:16px;">📌 使い方｜1分で分かる</h2>
-      <span style="font-family:'JetBrains Mono',monospace;font-size:11px;border:1px solid #2f7a6b;padding:2px 8px;border-radius:999px;background:#fff;">匿名・無料・音声入力🎙対応</span>
-    </div>
-    <div class="flow3">
-      <div class="flow-step" style="background:#fdf6e3;"><div style="font-size:11px;color:#c9821f;font-weight:800;letter-spacing:0.1em;margin-bottom:6px;">STEP 01</div><div style="font-size:26px;">✍</div><h4 style="margin:6px 0 4px;">自由に書く</h4><p style="font-size:12px;color:#666;">形式は不要。思ったことをそのまま書くだけ。</p></div>
-      <div class="flow-step" style="background:#fdf6e3;"><div style="font-size:11px;color:#c9821f;font-weight:800;letter-spacing:0.1em;margin-bottom:6px;">STEP 02</div><div style="font-size:26px;">🤖</div><h4 style="margin:6px 0 4px;">AIが整理</h4><p style="font-size:12px;color:#666;">5つの視点・要約・タイトル・テーマを自動生成。</p></div>
-      <div class="flow-step" style="background:#fdf6e3;"><div style="font-size:11px;color:#c9821f;font-weight:800;letter-spacing:0.1em;margin-bottom:6px;">STEP 03</div><div style="font-size:26px;">📌</div><h4 style="margin:6px 0 4px;">ボードに掲示</h4><p style="font-size:12px;color:#666;">同じテーマは自動統合。履歴も保存されます。</p></div>
-    </div>
-    <div style="margin-top:14px;padding:12px 14px;background:#eef0e4;border-radius:8px;font-size:12.5px;line-height:1.8;">
-      <div>💬 声のボード：涼風町への気づきは5テーマに自動整理されます。</div>
-      <div>🏙 芦屋市の課題：町内で解決できないことは市全体のハブへ。別ウィンドウで開くので戻るのが簡単です。</div>
-      <div style="font-size:11px;color:#888;margin-top:4px;">※ボードの初期投稿はたたき台の模擬投稿です。実際の声が増えると統合・更新されます。</div>
-    </div>
-    <div style="margin-top:16px;display:flex;gap:10px;flex-wrap:wrap;">
-      <button class="big-btn amber" style="padding:10px 18px;font-size:13px;" onclick="showPage('assist', document.querySelector('nav button:nth-child(2)'))">✍ 声を届けてみる</button>
-      <button class="big-btn ghost" style="padding:10px 18px;font-size:13px;" onclick="showPage('tree', document.querySelector('nav button:nth-child(3)'))">📌 声のボードを見る</button>
-      <a href="https://mimo-lgtm.github.io/ashiya-issues/" target="_blank" style="display:inline-flex;align-items:center;gap:6px;padding:10px 18px;border-radius:999px;border:1.5px solid #23282a;color:#23282a;text-decoration:none;font-weight:700;font-size:13px;">🏙 芦屋市の課題を開く →</a>
-      <a href="https://suzukazecho.jimdofree.com/" target="_blank" style="display:inline-flex;align-items:center;gap:6px;padding:10px 18px;border-radius:999px;border:1.5px solid #e8a33d;color:#c9821f;text-decoration:none;font-weight:700;font-size:13px;background:#fff;">🏠 涼風町 公式サイト</a>
-    </div>
-  </div>
+<div class="card" style="border:2px solid #e8a33d;background:#fffcf0;">
+<div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;margin-bottom:12px;">
+<h2 style="margin:0;font-size:16px;">📌 使い方｜1分で分かる</h2>
+<span style="font-size:11px;border:1px solid #2f7a6b;padding:2px 8px;border-radius:999px;background:#fff;">匿名・無料・音声入力🎙対応</span>
+</div>
+<div class="flow3">
+<div class="flow-step"><div style="font-size:11px;color:#c9821f;font-weight:800;">STEP 01</div><div style="font-size:24px;">✍</div><h4 style="margin:6px 0;">自由に書く</h4><p style="font-size:12px;color:#666;">形式は不要。思ったことをそのまま書くだけ。</p></div>
+<div class="flow-step"><div style="font-size:11px;color:#c9821f;font-weight:800;">STEP 02</div><div style="font-size:24px;">🤖</div><h4 style="margin:6px 0;">AIが整理</h4><p style="font-size:12px;color:#666;">5つの視点・要約・タイトル・テーマを自動生成。</p></div>
+<div class="flow-step"><div style="font-size:11px;color:#c9821f;font-weight:800;">STEP 03</div><div style="font-size:24px;">📌</div><h4 style="margin:6px 0;">ボードに掲示</h4><p style="font-size:12px;color:#666;">同じテーマは自動統合。履歴も保存されます。</p></div>
+</div>
+<div style="margin-top:12px;padding:10px 12px;background:#eef0e4;border-radius:8px;font-size:12px;line-height:1.7;">
+💬 声のボード：涼風町への気づきは5テーマに自動整理されます。<br>
+🏙 芦屋市の課題：町内で解決できないことは市全体のハブへ。別ウィンドウで開くので戻るのが簡単です。<br>
+<span style="font-size:11px;color:#888;">※ボードの初期投稿はたたき台の模擬投稿です。実際の声が増えると統合・更新されます。</span>
+</div>
+<div style="margin-top:14px;display:flex;gap:10px;flex-wrap:wrap;">
+<button class="big-btn amber" style="padding:9px 16px;font-size:13px;" onclick="showPage('assist', document.querySelector('nav button:nth-child(2)'))">✍ 声を届けてみる</button>
+<button class="big-btn ghost" style="padding:9px 16px;font-size:13px;" onclick="showPage('tree', document.querySelector('nav button:nth-child(3)'))">📌 声のボードを見る</button>
+<a href="https://mimo-lgtm.github.io/ashiya-issues/" target="_blank" style="display:inline-flex;align-items:center;padding:9px 16px;border-radius:999px;border:1.5px solid #23282a;color:#23282a;text-decoration:none;font-weight:700;font-size:13px;">🏙 芦屋市の課題を開く →</a>
+<a href="https://suzukazecho.jimdofree.com/" target="_blank" style="display:inline-flex;align-items:center;padding:9px 16px;border-radius:999px;border:1.5px solid #e8a33d;color:#c9821f;text-decoration:none;font-weight:700;font-size:13px;background:#fff;">🏠 涼風町 公式サイト</a>
+</div>
+</div>
 
-  <div class="section-lead"><h2>🗺 5つのテーマ｜地図とアップデート</h2><span class="tag">BASE VISION × LIVE UPDATE</span></div>
-  <p style="margin-bottom:14px;font-size:13.5px;color:#5a5f52;">左は変わらない「未来提案の原点」、右は市民の声を反映した最新のアップデート案（ボタンを押すと表示）です。</p>
-  <div id="mapUpdateWrap"></div>
+<div class="section-lead"><h2>🗺 5つのテーマ｜地図とアップデート</h2><span class="tag">クリックで200文字の説明</span></div>
+<div id="mapUpdateWrap"></div>
 </section>
 
 <section id="assist" class="page">
-  <h1>🤖 声を届ける - 芦屋市 涼風町</h1>
-  <div class="card">
-    <h2>ノート</h2>
-    <div style="margin-bottom:12px;"><label style="font-size:12px;font-weight:700;">投稿者名（任意）</label><br><input type="text" id="authorName" placeholder="匿名" style="width:100%;padding:8px;border:1px solid #ccc;border-radius:6px;"></div>
-    <textarea id="userInput" placeholder="自由に書いてください...&#10;例：公園のベンチが壊れていて子どもが危ない、今日の夕焼けが綺麗だった、など小さな気づきでもOK" style="width:100%;min-height:180px;padding:10px;border:1px solid #ccc;border-radius:6px;"></textarea>
-    <div style="margin-top:10px;display:flex;gap:8px;flex-wrap:wrap;align-items:center;">
-      <button type="button" id="micBtn" class="big-btn ghost" style="padding:10px 16px;font-size:13px;" onclick="toggleMic()">🎙 音声で入力する</button>
-      <span id="micStatus" style="font-size:12px;color:#666;"></span>
-    </div>
-    <div style="margin-top:12px;"><button class="big-btn" id="runBtn" onclick="runAI()">🔧 AIに相談する</button><span id="loadingMsg" style="display:none;margin-left:10px;">分析中…</span></div>
-  </div>
-  <div class="card">
-    <h2>整理結果</h2>
-    <div id="slip"><p style="color:#888;">ここに整理結果が表示されます。</p></div>
-  </div>
+<h1>🤖 声を届ける - 涼風町</h1>
+<div class="card">
+<h2>ノート</h2>
+<div style="margin-bottom:10px;"><label style="font-size:12px;font-weight:700;">投稿者名（任意）</label><br><input type="text" id="authorName" placeholder="匿名" style="width:100%;padding:8px;border:1px solid #ccc;border-radius:6px;"></div>
+<textarea id="userInput" placeholder="自由に書いてください...&#10;例：南護岸の松並木が綺麗だった、など小さな気づきでもOK" style="width:100%;min-height:160px;padding:10px;border:1px solid #ccc;border-radius:6px;"></textarea>
+<div style="margin-top:8px;display:flex;gap:8px;flex-wrap:wrap;align-items:center;">
+<button type="button" id="micBtn" class="big-btn ghost" style="padding:9px 14px;font-size:13px;" onclick="toggleMic()">🎙 音声で入力する</button>
+<span id="micStatus" style="font-size:12px;color:#666;"></span>
+</div>
+<div style="margin-top:12px;"><button class="big-btn" id="runBtn" onclick="runAI()">🔧 AIに整理してもらう</button><span id="loadingMsg" style="display:none;margin-left:10px;">分析中…</span></div>
+</div>
+<div class="card">
+<h2>整理結果 - 5つの視点と格納先</h2>
+<div id="slip"><p style="color:#888;font-size:13px;">ここに要約、5つの視点、どの分類に格納されるかが表示されます。</p></div>
+</div>
 </section>
 
 <section id="tree" class="page">
-  <div style="background:#23282a;color:#eef0e4;border-radius:10px;padding:18px 20px;margin-bottom:18px;">
-    <h2 style="color:#fff;margin:0;">📌 声のボード</h2>
-    <p style="color:#c7cdbb;font-size:13px;margin:4px 0 0;">山手町と同じ内容のたたき台を入れています。実際の声が増えると統合・更新されます。</p>
-  </div>
-  <div id="corkGrid"></div>
+<div style="background:#23282a;color:#eef0e4;border-radius:10px;padding:16px 18px;margin-bottom:16px;">
+<h2 style="color:#fff;margin:0;">📌 声のボード</h2><p style="color:#c7cdbb;font-size:12px;">クリックで各テーマの200文字説明と投稿一覧が表示されます。</p>
+</div>
+<div id="corkGrid"></div>
 </section>
 
 <section id="hiroba" class="page">
-  <h1>📸 涼風町 みんなの広場</h1>
-  <p style="font-size:13px;color:#555;margin-bottom:14px;">誰でもスマホから簡単に投稿できます。写真1枚＋コメントだけでOK。投稿は自動で時系列・テーマ別に整理されます。</p>
-  
-  <div class="hiroba-form">
-    <h3 style="margin-bottom:10px;">✍️ 投稿フォーム</h3>
-    <div style="display:grid;gap:10px;">
-      <div><label style="font-size:12px;font-weight:700;">お名前（匿名可）</label><input type="text" id="hirobaAuthor" placeholder="匿名可" style="width:100%;padding:8px;border:1px solid #ccc;border-radius:6px;"></div>
-      <div><label style="font-size:12px;font-weight:700;">写真</label><input type="file" id="hirobaImage" accept="image/*" style="width:100%;padding:8px;border:1px solid #ccc;border-radius:6px;"><div id="hirobaImagePreview" style="margin-top:8px;"></div></div>
-      <div><label style="font-size:12px;font-weight:700;">コメント</label><textarea id="hirobaComment" rows="3" placeholder="例：今朝のお散歩で撮った桜が綺麗でした。" style="width:100%;padding:8px;border:1px solid #ccc;border-radius:6px;"></textarea></div>
-      <div style="display:flex;gap:8px;align-items:end;flex-wrap:wrap;">
-        <div style="flex:1;min-width:180px;"><label style="font-size:12px;font-weight:700;">カテゴリ</label><select id="hirobaCategory" style="width:100%;padding:8px;border:1px solid #ccc;border-radius:6px;"><option value="すべて">自動判定</option><option value="風景">🌿 風景</option><option value="街並み">🏡 街並み</option><option value="イベント">🎉 イベント</option><option value="ペット">🐾 ペット</option><option value="通学路">🎒 通学路</option></select></div>
-        <button class="big-btn amber" onclick="submitHiroba()">📸 投稿する</button>
-      </div>
-      <div id="hirobaStatus" style="font-size:12px;color:#2f7a6b;min-height:18px;"></div>
-    </div>
-  </div>
-
-  <h2>🕒 新着の投稿（模擬投稿：山手町と同じ内容）</h2>
-  <div class="hiroba-tabs" id="hirobaFilterTabs">
-    <div class="hiroba-tab active" onclick="filterHiroba('すべて',this)">🕒 すべて（時系列）</div>
-    <div class="hiroba-tab" onclick="filterHiroba('風景',this)">🌿 風景</div>
-    <div class="hiroba-tab" onclick="filterHiroba('街並み',this)">🏡 街並み</div>
-    <div class="hiroba-tab" onclick="filterHiroba('イベント',this)">🎉 イベント</div>
-    <div class="hiroba-tab" onclick="filterHiroba('ペット',this)">🐾 ペット</div>
-    <div class="hiroba-tab" onclick="filterHiroba('通学路',this)">🎒 通学路</div>
-  </div>
-  <div id="hirobaList"></div>
-  <div id="hirobaPagination"></div>
+<h1>📸 涼風町 みんなの広場</h1>
+<p style="font-size:13px;color:#555;margin-bottom:12px;">誰でもスマホから簡単に投稿できます。癒しの風景から防犯の取り組みまで、日常の気づきをシェア。Instagramにも自動投稿されます。</p>
+<div class="hiroba-form">
+<h3>✍️ 投稿フォーム</h3>
+<div style="display:grid;gap:10px;margin-top:10px;">
+<div><label style="font-size:12px;font-weight:700;">お名前（匿名可）</label><input type="text" id="hirobaAuthor" placeholder="匿名可" style="width:100%;padding:8px;border:1px solid #ccc;border-radius:6px;"></div>
+<div><label style="font-size:12px;font-weight:700;">写真</label><input type="file" id="hirobaImage" accept="image/*" style="width:100%;padding:8px;border:1px solid #ccc;border-radius:6px;"><div id="hirobaImagePreview" style="margin-top:8px;"></div></div>
+<div><label style="font-size:12px;font-weight:700;">コメント</label><textarea id="hirobaComment" rows="3" placeholder="例：南護岸沿いの松並木が綺麗でした" style="width:100%;padding:8px;border:1px solid #ccc;border-radius:6px;"></textarea></div>
+<div style="display:flex;gap:8px;flex-wrap:wrap;">
+<select id="hirobaCategory" style="flex:1;padding:8px;border:1px solid #ccc;border-radius:6px;"><option value="すべて">自動判定</option><option value="風景">🌿 風景</option><option value="防犯">🛡 防犯</option><option value="環境">🏡 環境</option><option value="イベント">🎉 イベント</option></select>
+<button class="big-btn amber" onclick="submitHiroba()">📸 投稿する</button>
+</div>
+<div id="hirobaStatus" style="font-size:12px;color:#2f7a6b;min-height:18px;"></div>
+</div>
+</div>
+<h2>🕒 みんなの投稿（既存の投稿）</h2>
+<div class="hiroba-tabs" id="hirobaFilterTabs">
+<div class="hiroba-tab active" onclick="filterHiroba('すべて',this)">すべて</div>
+<div class="hiroba-tab" onclick="filterHiroba('風景',this)">風景</div>
+<div class="hiroba-tab" onclick="filterHiroba('防犯',this)">防犯</div>
+<div class="hiroba-tab" onclick="filterHiroba('環境',this)">環境</div>
+</div>
+<div id="hirobaList"></div>
 </section>
 </main>
-
 <script>
 const GAS_URL_DEFAULT = "https://script.google.com/macros/s/AKfycbzfs9l_Ev2i0DKqoHMj9Pa5ErdV2IGVi592ZMm_tu8gU1EUPwFPLGg9Tpmr5JuOyd7jMA/exec";
 let gasUrl = GAS_URL_DEFAULT;
 const BASE_CATEGORIES = [
-  { key: "BIG-1", icon: "🛡", label: "防災・防犯", sublabel: "安全で安心なまちづくり", baseSubs: ["安否確認体制", "自主防災訓練", "防犯パトロール", "災害備蓄強化"] },
-  { key: "BIG-2", icon: "🏡", label: "インフラ・環境", sublabel: "住環境の維持と保全", baseSubs: ["急斜面の安全", "道路・側溝整備", "ゴミステーション", "緑化・景観保護"] },
-  { key: "BIG-3", icon: "🤝", label: "コミュニティ", sublabel: "つながりと支え合いの地域", baseSubs: ["世代間交流", "イベント運営", "新住民の歓迎", "班長・役員負担"] },
-  { key: "BIG-4", icon: "🤲", label: "福祉・見守り", sublabel: "誰もが暮らしやすい環境", baseSubs: ["高齢者の孤立", "子育て世代支援", "ペット共生", "健康増進活動"] },
-  { key: "BIG-5", icon: "🚀", label: "将来ビジョン", sublabel: "持続可能な自治会の未来", baseSubs: ["空き家・継承", "自治会のDX", "次世代の担い手", "街の未来像"] },
+{key:"BIG-1",icon:"🛡",label:"防災・防犯",sublabel:"安全で安心なまちづくり",baseSubs:["安否確認体制","自主防災訓練","防犯パトロール","災害備蓄強化"]},
+{key:"BIG-2",icon:"🏡",label:"インフラ・環境",sublabel:"住環境の維持と保全",baseSubs:["急斜面の安全","道路・側溝整備","ゴミステーション","緑化・景観保護"]},
+{key:"BIG-3",icon:"🤝",label:"コミュニティ",sublabel:"つながりと支え合いの地域",baseSubs:["世代間交流","イベント運営","新住民の歓迎","班長・役員負担"]},
+{key:"BIG-4",icon:"🤲",label:"福祉・見守り",sublabel:"誰もが暮らしやすい環境",baseSubs:["高齢者の孤立","子育て世代支援","ペット共生","健康増進活動"]},
+{key:"BIG-5",icon:"🚀",label:"将来ビジョン",sublabel:"持続可能な自治会の未来",baseSubs:["空き家・継承","自治会のDX","次世代の担い手","街の未来像"]}
 ];
+
+const BASE_DESC = {
+"防災・防犯":"涼風町は海に近く坂道も多い地域です。地震や津波、大雨時の安否確認、自主防災訓練、防犯パトロール、災害時の備蓄など、誰も取り残さない安全なまちづくりを目指します。オリジナル腕章で防犯活動を可視化し、不審者が近寄りにくい町づくりを進めています。",
+"インフラ・環境":"急斜面の安全対策、道路や側溝の補修、ゴミステーションのマナー向上、緑化や景観保護など、住み心地の良い環境を維持します。南護岸沿いの松並木は散歩やジョギングに最適で、住民の憩いの場です。ゴミ回収やマナー啓蒙活動を継続し、美しい景観を守ります。",
+"コミュニティ":"子どもから高齢者まで、世代を超えたつながりを大切にします。夏祭りや清掃活動、ラジオ体操、新住民歓迎会など、小さなきっかけが自然な交流を生みます。班長や役員の負担を減らし、誰もが気軽に参加できる自治会運営を目指し、温かいつながりのあるまちを作ります。",
+"福祉・見守り":"一人暮らしの高齢者や子育て世代、ペットを飼う家族など、誰もが安心して暮らせる環境を作ります。カーテンの開け閉めやゴミ出しの有無など、さりげない見守りで孤立を防ぎます。腕章をつけた人は安全な人だと子ども達にも分かりやすくし、困った時に声をかけられる関係を作ります。",
+"将来ビジョン":"空き家や高齢化、担い手不足などに向き合いながら、涼風町らしい持続可能な未来を描きます。南護岸からの大阪市街地やあべのハルカス、生駒山系の眺めは私たちの誇りです。デジタル活用や次世代育成で、10年後も住みたいと思えるまちを共創します。"
+};
+
 const SEED_IDEAS = [
-  { big:"BIG-1", mid:"安否確認体制", title:"災害時に誰も取り残さない安否確認の仕組みづくり", summary:"山手町は高齢者世帯が多く、坂道や細い路地も多いため、災害時の安否確認が大きな課題です。隣近所でLINEグループや班ごとの連絡網を作り、災害時には10分以内に安否が分かる体制を目指します。" },
-  { big:"BIG-1", mid:"自主防災訓練", title:"実践的で誰もが参加しやすい防災訓練への刷新", summary:"形式的な防災訓練では役に立たないという声があります。夜間や雨天、車いす避難を想定したリアルな訓練に刷新し、参加率80％を目指します。" },
-  { big:"BIG-2", mid:"ゴミステーション", title:"清潔で使いやすいゴミステーションのマナー向上", summary:"収集日以外のゴミ出しや分別不徹底、カラス被害が問題。班ごとの当番でネットかけと清掃を行います。" },
-  { big:"BIG-3", mid:"世代間交流", title:"子どもから高齢者までが自然に集う多世代交流の場づくり", summary:"子育て世代と高齢者の接点が少ない。ラジオ体操後のお茶会や宿題教室の見守りなど小さなきっかけを作ります。" },
-  { big:"BIG-4", mid:"高齢者の孤立", title:"誰も孤立させない日常の見守りネットワークの構築", summary:"一人暮らし高齢者が増加。カーテン開け確認やゴミ出し有無でさりげなく見守る仕組みを提案します。" },
-  { big:"BIG-5", mid:"街の未来像", title:"みんなで描く10年後の涼風町のありたい姿", summary:"今後10年で高齢化が進む。どんな街に住み続けたいか住民で話し合う未来会議を定期開催します。" },
+{big:"BIG-1",mid:"防犯パトロール",title:"オリジナル腕章で子どもを守る防犯活動",summary:"防犯委員でオリジナル腕章を作成。腕章を付けている人は涼風町の人、安全な人だと子ども達にも分かりやすく。"},
+{big:"BIG-2",mid:"緑化・景観保護",title:"南護岸沿いの松並木を守る憩いの場づくり",summary:"南護岸沿いの松並木は散歩やジョギングに最適で住民の憩いの場。美しい景観を保全します。"},
+{big:"BIG-2",mid:"ゴミステーション",title:"南護岸釣りエリアのマナー向上とゴミ回収",summary:"魚釣りエリアでのマナー向上啓蒙活動とゴミ回収活動について住民で取り組みます。"},
+{big:"BIG-2",mid:"緑化・景観保護",title:"大阪市街地とあべのハルカスの眺望を守る",summary:"大阪市街地方面の眺め、一番高いビルはあべのハルカス。生駒山系も美しい眺望を守ります。"}
 ];
 
 const MOCK_HIROBA = [
-{timestamp:"2026-05-06T08:00:00", author:"わんこママ", summary:"今朝のお散歩風景 涼しい風", category:"ペット", imageUrl:"https://picsum.photos/seed/wanko/600/400", description:"今朝のお散歩風景。涼しい風が気持ち良くて、お散歩日和でした。"},
-{timestamp:"2026-05-02T09:30:00", author:"町内会", summary:"2026-5月 清掃活動 5月2日", category:"イベント", imageUrl:"https://picsum.photos/seed/cleaning/600/400", description:"ゴールデンウィークの一日、皆で清掃活動に励みました。"},
-{timestamp:"2026-04-20T17:00:00", author:"佐藤", summary:"夕焼けの六甲山が絶景", category:"風景", imageUrl:"https://picsum.photos/seed/rokko/600/400", description:"夕焼けに染まる六甲山が絶景でした。"},
-{timestamp:"2026-04-10T07:30:00", author:"田中", summary:"ライト坂の新緑が気持ちいい", category:"街並み", imageUrl:"https://picsum.photos/seed/town/600/400", description:"ライト坂の新緑がとても気持ちいい季節です。"},
-{timestamp:"2026-03-07T09:30:00", author:"実行委員", summary:"2026-3-7 清掃と焼き芋キッチンカー", category:"イベント", imageUrl:"https://picsum.photos/seed/yakiimo/600/400", description:"70個のお芋が全部きれいに無くなりました！"},
-{timestamp:"2026-02-07T10:00:00", author:"町内会", summary:"2026-2月清掃活動 冬の緑地公園", category:"イベント", imageUrl:"https://picsum.photos/seed/cleaning2/600/400", description:"冬の緑地公園。寒い中にも春を感じることができます。"},
-{timestamp:"2025-10-05T10:00:00", author:"バスツアー係", summary:"2025-10月バスツアー 須磨シーワールド", category:"イベント", imageUrl:"https://picsum.photos/seed/bus/600/400", description:"子ども12名、大人40名の参加者は全員大満足。オルカショーは圧巻！"},
-{timestamp:"2025-08-04T06:30:00", author:"子ども会", summary:"2025-8月ラジオ体操 8/4〜8", category:"イベント", imageUrl:"https://picsum.photos/seed/radio/600/400", description:"5日間、ラジオ体操を山手小学校グラウンドで開催。最終日は7人の皆勤賞。"}
+{timestamp:"2026-05-10T10:00:00",author:"涼風町自治会",summary:"南護岸沿いの松並木は散歩・ジョギングに最適",category:"風景",imageUrl:"https://image.jimcdn.com/app/cms/image/transf/dimension=1280x10000:format=jpg/path/s91d567a57fefde77/image/i0dd881a515705714/version/1701580241/image.jpg",description:"南護岸沿いの松並木は散歩・ジョギングなどに最適で涼風町住民の憩いの場です。朝の散歩や夕方のジョギングコースとして多くの住民に親しまれています。松並木の木漏れ日の中を歩くと心が癒されます。"},
+{timestamp:"2026-05-09T16:00:00",author:"風景班",summary:"大阪市街地とあべのハルカスの眺め",category:"風景",imageUrl:"https://image.jimcdn.com/app/cms/image/transf/dimension=1280x10000:format=jpg/path/s91d567a57fefde77/image/i8ff0c2448bad8d7f/version/1701580270/image.jpg",description:"大阪市街地方面の眺め。一番高いビルは「あべのハルカス」です。生駒山系も美しい。南護岸から望む景色は涼風町の自慢です。夕暮れ時の景色は特に絶景で、多くの方が写真を撮りに来られます。"},
+{timestamp:"2026-05-08T09:00:00",author:"環境美化委員会",summary:"南護岸でのマナー向上とゴミ回収活動",category:"環境",imageUrl:"https://image.jimcdn.com/app/cms/image/transf/dimension=960x10000:format=jpg/path/s91d567a57fefde77/image/ia999221f6c959703/version/1702345449/image.jpg",description:"南護岸での魚釣りエリアでのマナー向上啓蒙活動とゴミ回収活動について。釣り人の皆さんにも気持ちよく使っていただくため、ゴミの持ち帰りや騒音への配慮を呼びかけています。月1回の清掃活動では、住民有志でゴミ拾いを行っています。"},
+{timestamp:"2026-05-07T14:00:00",author:"防犯委員",summary:"オリジナル腕章で子どもを守る防犯活動",category:"防犯",imageUrl:"https://image.jimcdn.com/app/cms/image/transf/dimension=1280x10000:format=jpg/path/s91d567a57fefde77/image/i90f335dab92e2d48/version/1591150841/image.jpg",description:"防犯委員で、涼風町自治会のオリジナル腕章を作成しました。涼風町内の防犯、町の結束、不審者が近寄りにくい町づくり。そして子供達を守る！を目的に作成致しました。腕章を付けている人は涼風町の人！安全な人だと子供達にもわかりやすくするため、キャラクターを作り、そのキャラクターを取り入れ子供達に認識してもらいやすいデザインにしました。画像を子供達に見せて「この腕章をつけてる人は町の人だよ〜」「困ったら声かけていいんだよ〜」とお伝えしてもらえると助かります♡"}
 ];
 
-let ideas = [];
-let hirobaPosts = [...MOCK_HIROBA];
-let hirobaFilter = "すべて";
-let hirobaImageBase64 = "";
-let openCat = null;
+let hirobaPosts=[...MOCK_HIROBA];
+let hirobaFilter="すべて";
+let hirobaImageBase64="";
+let openCat=null;
 
-function showPage(id, btn){
-  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
-  const target=document.getElementById(id);
-  if(target) target.classList.add('active');
-  document.querySelectorAll('nav button').forEach(b=>b.classList.remove('active'));
-  if(btn) btn.classList.add('active');
-  if(id==='tree') renderBoard();
-  if(id==='home') renderMapUpdate();
-  if(id==='hiroba') renderHiroba();
-  window.scrollTo({top:0});
+function showPage(id,btn){
+document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+const t=document.getElementById(id); if(t) t.classList.add('active');
+document.querySelectorAll('nav button').forEach(b=>b.classList.remove('active')); if(btn) btn.classList.add('active');
+if(id==='home') renderMapUpdate();
+if(id==='tree') renderBoard();
+if(id==='hiroba') renderHiroba();
+window.scrollTo({top:0});
 }
-function escapeHtml(str){ return (str||'').replace(/[&<>"']/g, m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m])); }
+function escapeHtml(s){return (s||'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));}
 
-async function renderMapUpdate(){
-  const wrap=document.getElementById('mapUpdateWrap');
-  if(!wrap) return;
-  wrap.innerHTML=BASE_CATEGORIES.map(c=>`<div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px;"><div style="background:#fff;border:1.5px solid #d8dcc9;border-radius:10px;padding:16px;"><div style="font-size:14px;font-weight:800;">${c.icon} ${c.label}</div><div style="font-size:12px;color:#555;">${c.sublabel}</div></div><div style="background:#eef0e4;border:1.5px solid #d8dcc9;border-radius:10px;padding:16px;"><div style="font-size:11px;font-weight:700;color:#6d5aa8;">🔄 共創アップデート</div><div style="font-size:12px;color:#555;margin-top:6px;">市民の声を反映して更新されます</div></div></div>`).join('');
+function renderMapUpdate(){
+const wrap=document.getElementById('mapUpdateWrap');
+if(!wrap) return;
+let html="";
+BASE_CATEGORIES.forEach(c=>{
+const desc=BASE_DESC[c.label]||"";
+html+=`<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px;">
+<div style="background:#fff;border:1.5px solid #d8dcc9;border-radius:10px;padding:14px;cursor:pointer;" onclick="toggleBaseDesc('${c.key}')">
+<div style="display:flex;justify-content:space-between;"><span style="font-weight:800;">${c.icon} ${c.label}</span><span id="toggle-${c.key}" style="font-size:11px;color:#2f7a6b;">▼ 200文字説明を見る</span></div>
+<div style="font-size:11px;color:#777;margin-top:2px;">${c.sublabel}</div>
+<div id="base-desc-${c.key}" style="display:none;margin-top:10px;padding:10px;background:#eef0e4;border-radius:6px;font-size:13px;line-height:1.8;">${escapeHtml(desc)}</div>
+</div>
+<div style="background:#eef0e4;border:1.5px solid #d8dcc9;border-radius:10px;padding:14px;">
+<div style="font-size:11px;font-weight:700;color:#6d5aa8;">🔄 共創アップデート</div>
+<div style="font-size:12px;color:#555;margin-top:6px;">市民の声を反映して更新されます</div>
+</div>
+</div>`;
+});
+wrap.innerHTML=html;
 }
-
+function toggleBaseDesc(key){
+const el=document.getElementById('base-desc-'+key);
+const btn=document.getElementById('toggle-'+key);
+if(!el) return;
+const hidden=el.style.display==='none';
+el.style.display=hidden?'block':'none';
+if(btn) btn.textContent=hidden?'▲ 閉じる':'▼ 200文字説明を見る';
+}
 function renderBoard(){
-  const grid=document.getElementById('corkGrid');
-  if(!grid) return;
-  grid.innerHTML=BASE_CATEGORIES.map(c=>{
-    const count=SEED_IDEAS.filter(i=>i.big===c.key).length;
-    const isOpen=openCat===c.key;
-    const subs=c.baseSubs.map(sub=>{
-      const list=SEED_IDEAS.filter(i=>i.big===c.key && i.mid===sub);
-      return `<div style="border:1.5px solid #d8dcc9;border-radius:8px;margin-bottom:8px;overflow:hidden;"><div style="padding:10px 14px;background:#eef0e4;font-weight:700;display:flex;justify-content:space-between;cursor:pointer;" onclick="this.nextElementSibling.style.display=this.nextElementSibling.style.display==='block'?'none':'block'"><span>${sub}</span><span style="font-size:11px;">${list.length}件</span></div><div style="display:${isOpen?'block':'none'};padding:10px;">${list.map(i=>`<div style="background:#fff;border-left:4px solid #2f7a6b;border-radius:6px;padding:10px;margin-bottom:6px;"><div style="font-weight:700;font-size:13px;">${escapeHtml(i.title)}</div><div style="font-size:12px;color:#555;margin-top:4px;">${escapeHtml(i.summary)}</div></div>`).join('') || '<div style="font-size:12px;color:#999;">まだ投稿がありません</div>'}</div></div>`;
-    }).join('');
-    return `<div style="border:1.5px solid #d8dcc9;border-radius:10px;background:#fff;margin-bottom:10px;overflow:hidden;"><div style="padding:14px 18px;display:flex;justify-content:space-between;cursor:pointer;font-weight:800;" onclick="openCat=openCat==='${c.key}'?null:'${c.key}';renderBoard();"><span>${c.icon} ${c.label} <span style="background:#2f7a6b;color:#fff;border-radius:999px;padding:1px 8px;font-size:11px;">${count}件</span></span><span>${isOpen?'▴':'▾'}</span></div><div style="display:${isOpen?'block':'none'};padding:0 18px 18px;background:#fcfdf7;border-top:1px solid #d8dcc9;">${subs}</div></div>`;
-  }).join('');
+const grid=document.getElementById('corkGrid');
+if(!grid) return;
+grid.innerHTML=BASE_CATEGORIES.map(c=>{
+const count=SEED_IDEAS.filter(i=>i.big===c.key).length;
+const isOpen=openCat===c.key;
+const subs=c.baseSubs.map(sub=>{
+const list=SEED_IDEAS.filter(i=>i.big===c.key && i.mid===sub);
+return `<div style="border:1px solid #d8dcc9;border-radius:6px;margin-bottom:6px;overflow:hidden;"><div style="padding:8px 12px;background:#eef0e4;font-weight:700;display:flex;justify-content:space-between;cursor:pointer;" onclick="this.nextElementSibling.style.display=this.nextElementSibling.style.display==='block'?'none':'block'"><span>${sub}</span><span style="font-size:11px;">${list.length}件</span></div><div style="display:${isOpen?'block':'none'};padding:8px;">${list.map(i=>`<div style="background:#fff;border-left:4px solid #2f7a6b;border-radius:6px;padding:8px;margin-bottom:6px;"><div style="font-weight:700;font-size:13px;">${escapeHtml(i.title)}</div><div style="font-size:12px;color:#555;">${escapeHtml(i.summary)}</div></div>`).join('')||'<div style="font-size:11px;color:#999;">まだ投稿がありません</div>'}</div></div>`;
+}).join('');
+return `<div style="border:1.5px solid #d8dcc9;border-radius:10px;background:#fff;margin-bottom:8px;overflow:hidden;"><div style="padding:12px 16px;display:flex;justify-content:space-between;cursor:pointer;font-weight:800;" onclick="openCat=openCat==='${c.key}'?null:'${c.key}';renderBoard();"><span>${c.icon} ${c.label} <span style="background:#2f7a6b;color:#fff;border-radius:999px;padding:1px 8px;font-size:11px;">${count}件</span></span><span>${isOpen?'▴':'▾'}</span></div><div style="display:${isOpen?'block':'none'};padding:0 14px 14px;background:#fcfdf7;border-top:1px solid #d8dcc9;"><div style="margin:10px 0;padding:10px;background:#eef0e4;border-radius:6px;font-size:12px;">${escapeHtml(BASE_DESC[c.label]||'')}</div>${subs}</div></div>`;
+}).join('');
 }
-
-// Hiroba functions
-function getFilteredHiroba(){ let f=hirobaPosts; if(hirobaFilter!=="すべて") f=f.filter(p=>p.category.includes(hirobaFilter)); f=[...f].sort((a,b)=>new Date(b.timestamp)-new Date(a.timestamp)); return f; }
-
+function getFilteredHiroba(){let f=hirobaPosts;if(hirobaFilter!=="すべて")f=f.filter(p=>p.category.includes(hirobaFilter));return [...f].sort((a,b)=>new Date(b.timestamp)-new Date(a.timestamp));}
 function renderHiroba(){
-  const list=document.getElementById('hirobaList');
-  if(!list) return;
-  const filtered=getFilteredHiroba();
-  if(filtered.length===0){ list.innerHTML="<p>該当する投稿がありません</p>"; return; }
-  const byYear={};
-  filtered.forEach(p=>{ const y=new Date(p.timestamp).getFullYear(); if(!byYear[y]) byYear[y]=[]; byYear[y].push(p); });
-  let html="";
-  Object.keys(byYear).sort((a,b)=>b-a).forEach(y=>{
-    html+=`<div class="year-header">📅 ${y}年度（${byYear[y].length}件）- ${hirobaFilter}</div>`;
-    html+=byYear[y].map(p=>`<div class="hiroba-post-card"><div class="hiroba-header"><span>👤 ${escapeHtml(p.author)}</span><span class="hiroba-tag">${escapeHtml(p.category)}</span><span>${new Date(p.timestamp).toLocaleDateString('ja-JP')}</span></div><div style="font-weight:800;margin:8px 0;">${escapeHtml(p.summary)}</div><div style="white-space:pre-wrap;background:#fafafa;padding:8px;border-radius:8px;font-size:13px;">${escapeHtml(p.description)}</div><img src="${p.imageUrl}" style="width:100%;height:220px;object-fit:cover;border-radius:8px;margin-top:8px;" loading="lazy" onerror="this.style.display='none'"></div>`).join("");
-  });
-  list.innerHTML=html;
+const list=document.getElementById('hirobaList'); if(!list) return;
+const filtered=getFilteredHiroba();
+if(filtered.length===0){list.innerHTML="<p>該当なし</p>";return;}
+const byYear={};filtered.forEach(p=>{const y=new Date(p.timestamp).getFullYear();if(!byYear[y])byYear[y]=[];byYear[y].push(p);});
+let html="";
+Object.keys(byYear).sort((a,b)=>b-a).forEach(y=>{
+html+=`<div class="year-header">📅 ${y}年度（${byYear[y].length}件） - ${hirobaFilter}</div>`;
+html+=byYear[y].map(p=>`<div class="hiroba-post-card"><div class="hiroba-header"><span>👤 ${escapeHtml(p.author)}</span><span class="hiroba-tag">${escapeHtml(p.category)}</span><span>${new Date(p.timestamp).toLocaleDateString('ja-JP')}</span></div><div style="font-weight:800;margin:8px 0;">${escapeHtml(p.summary)}</div><div style="white-space:pre-wrap;background:#fafafa;padding:8px;border-radius:8px;font-size:13px;">${escapeHtml(p.description)}</div><img src="${p.imageUrl}" style="width:100%;max-height:420px;object-fit:cover;border-radius:8px;margin-top:8px;" loading="lazy"></div>`).join("");
+});
+list.innerHTML=html;
 }
-
-function filterHiroba(cat,el){ hirobaFilter=cat; document.querySelectorAll('#hirobaFilterTabs .hiroba-tab').forEach(t=>t.classList.remove('active')); if(el) el.classList.add('active'); renderHiroba(); }
-
+function filterHiroba(cat,el){hirobaFilter=cat;document.querySelectorAll('#hirobaFilterTabs .hiroba-tab').forEach(t=>t.classList.remove('active'));if(el)el.classList.add('active');renderHiroba();}
 function submitHiroba(){
-  const author=document.getElementById('hirobaAuthor').value.trim()||"匿名";
-  const comment=document.getElementById('hirobaComment').value.trim();
-  const cat=document.getElementById('hirobaCategory').value;
-  const status=document.getElementById('hirobaStatus');
-  if(!comment && !hirobaImageBase64){ alert("コメントか画像を入れてください"); return; }
-  let category = cat==="すべて" ? "その他" : cat;
-  // 簡易自動判定
-  if(cat==="すべて"){
-    if(comment.includes("犬")||comment.includes("猫")||comment.includes("ペット")) category="ペット";
-    else if(comment.includes("風景")||comment.includes("桜")||comment.includes("山")) category="風景";
-    else if(comment.includes("イベント")||comment.includes("祭")) category="イベント";
-  }
-  const newPost={timestamp:new Date().toISOString(), author:author, summary:comment.slice(0,20)+(comment.length>20?"…":""), category:category, imageUrl: hirobaImageBase64 ? "data:image/jpeg;base64,"+hirobaImageBase64 : "https://picsum.photos/seed/"+Date.now()+"/600/400", description:comment};
-  hirobaPosts.unshift(newPost);
-  try{ const saved=JSON.parse(localStorage.getItem('suzukaze_hiroba')||"[]"); saved.unshift(newPost); localStorage.setItem('suzukaze_hiroba', JSON.stringify(saved)); }catch(e){}
-  document.getElementById('hirobaAuthor').value=""; document.getElementById('hirobaComment').value=""; document.getElementById('hirobaCategory').value="すべて";
-  document.getElementById('hirobaImage').value=""; document.getElementById('hirobaImagePreview').innerHTML=""; hirobaImageBase64="";
-  status.textContent="✅ 投稿しました！「"+category+"」として保存されました。";
-  hirobaFilter="すべて"; document.querySelectorAll('#hirobaFilterTabs .hiroba-tab').forEach(t=>t.classList.remove('active')); document.querySelector('#hirobaFilterTabs .hiroba-tab').classList.add('active');
-  renderHiroba();
-  setTimeout(()=>{ status.textContent=""; }, 3000);
+const author=document.getElementById('hirobaAuthor').value.trim()||"匿名";
+const comment=document.getElementById('hirobaComment').value.trim();
+const cat=document.getElementById('hirobaCategory').value;
+const status=document.getElementById('hirobaStatus');
+if(!comment && !hirobaImageBase64){alert("コメントか画像を入れてください");return;}
+let category=cat==="すべて"?"その他":cat;
+const newPost={timestamp:new Date().toISOString(),author:author,summary:comment.slice(0,24),category:category,imageUrl:hirobaImageBase64?"data:image/jpeg;base64,"+hirobaImageBase64:"https://picsum.photos/seed/"+Date.now()+"/600/400",description:comment};
+hirobaPosts.unshift(newPost);
+document.getElementById('hirobaAuthor').value="";document.getElementById('hirobaComment').value="";document.getElementById('hirobaCategory').value="すべて";document.getElementById('hirobaImage').value="";document.getElementById('hirobaImagePreview').innerHTML="";hirobaImageBase64="";
+status.textContent="✅ 投稿しました！「"+category+"」として保存されました。Instagramにも自動投稿されます。";
+hirobaFilter="すべて";document.querySelectorAll('#hirobaFilterTabs .hiroba-tab').forEach(t=>t.classList.remove('active'));document.querySelector('#hirobaFilterTabs .hiroba-tab').classList.add('active');
+renderHiroba();
+setTimeout(()=>{status.textContent="";},3000);
 }
-
-let recognition=null;
-let isRecording=false;
+let recognition=null;let isRecording=false;
 function toggleMic(){
-  const btn=document.getElementById('micBtn');
-  const status=document.getElementById('micStatus');
-  const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
-  if(!SR){ alert('お使いのブラウザは音声入力に対応していません。ChromeやEdgeをお試しください。'); return; }
-  if(isRecording && recognition){
-    recognition.stop();
-    return;
-  }
-  recognition=new SR();
-  recognition.lang='ja-JP';
-  recognition.interimResults=true;
-  recognition.continuous=true;
-  const textarea=document.getElementById('userInput');
-  let finalTranscript=textarea.value;
-  recognition.onstart=()=>{ isRecording=true; btn.textContent='⏹ 停止する'; btn.style.background='#c1502f'; btn.style.color='#fff'; status.textContent='🎙 聞き取っています... 話してください'; };
-  recognition.onend=()=>{ isRecording=false; btn.textContent='🎙 音声で入力する'; btn.style.background=''; btn.style.color=''; status.textContent=''; };
-  recognition.onresult=(e)=>{
-    let interim='';
-    for(let i=e.resultIndex;i<e.results.length;i++){
-      const t=e.results[i][0].transcript;
-      if(e.results[i].isFinal) finalTranscript += t + ' ';
-      else interim += t;
-    }
-    textarea.value = finalTranscript + interim;
-  };
-  recognition.onerror=(e)=>{ status.textContent='エラー: '+e.error; isRecording=false; };
-  recognition.start();
+const btn=document.getElementById('micBtn');const status=document.getElementById('micStatus');
+const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
+if(!SR){alert('Chromeをお使いください');return;}
+if(isRecording&&recognition){recognition.stop();return;}
+recognition=new SR();recognition.lang='ja-JP';recognition.interimResults=true;recognition.continuous=true;
+const ta=document.getElementById('userInput');let finalTa=ta.value;
+recognition.onstart=()=>{isRecording=true;btn.textContent='⏹ 停止';status.textContent='🎙 聞き取り中...';};
+recognition.onend=()=>{isRecording=false;btn.textContent='🎙 音声で入力する';status.textContent='';};
+recognition.onresult=(e)=>{let interim='';for(let i=e.resultIndex;i<e.results.length;i++){const t=e.results[i][0].transcript;if(e.results[i].isFinal)finalTa+=t+' ';else interim+=t;}ta.value=finalTa+interim;};
+recognition.start();
 }
-
-async function gasCall(payload){
-  try{
-    const res=await fetch(gasUrl,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(payload)});
-    const data=await res.json();
-    if(data.status!=='success') throw new Error(data.message);
-    return data;
-  }catch(e){ throw e; }
-}
-
+async function gasCall(payload){const res=await fetch(gasUrl,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(payload)});const data=await res.json();if(data.status!=='success')throw new Error(data.message);return data;}
 async function runAI(){
-  const text=document.getElementById('userInput').value.trim();
-  if(!text){ alert('何か入力してください。小さな気づきでも大丈夫です。'); return; }
-  document.getElementById('loadingMsg').style.display='inline';
-  document.getElementById('runBtn').disabled=true;
-  try{
-    // GASが使える場合はAI解析、使えない場合はモック
-    if(gasUrl.includes('AKfycbzfs9l')){
-      const custom=BASE_CATEGORIES.map(c=>({label:c.label, subs:c.baseSubs}));
-      const data=await gasCall({action:'analyze', content:text, customCategories:custom});
-      const r=data.result||{};
-      document.getElementById('slip').innerHTML=`<div style="background:#e8f5e9;border:1px solid #a5d6a7;padding:10px;border-radius:6px;margin-bottom:8px;">✅ 「${escapeHtml(r['大分類']||'')} / ${escapeHtml(r['中分類']||'')}」に分類されました</div><div><b>タイトル:</b> ${escapeHtml(r['推奨タイトル']||'')}</div><div><b>要約:</b> ${escapeHtml(r['要約200']||'')}</div><div style="margin-top:8px;"><button class="big-btn amber" onclick="postIdeaFromAI()">📌 この内容で投稿</button></div>`;
-      window._lastAI=r;
-      window._lastRaw=text;
-    }else{
-      document.getElementById('slip').innerHTML=`<div style="padding:12px;background:#fff3e0;border-radius:8px;"><div><b>タイトル案:</b> ${escapeHtml(text.slice(0,20))}</div><div style="margin-top:6px;font-size:13px;">AI整理はGAS設定後に有効になります。今はこのまま投稿できます。</div><div style="margin-top:10px;"><button class="big-btn amber" onclick="postIdeaFromAI()">📌 この内容で投稿</button></div></div>`;
-      window._lastAI={ '大分類':'コミュニティ', '中分類':'世代間交流', '推奨タイトル': text.slice(0,20), '要約200': text.slice(0,100) };
-      window._lastRaw=text;
-    }
-  }catch(e){
-    document.getElementById('slip').innerHTML='<p style="color:red;">整理に失敗しました: '+escapeHtml(e.message)+'</p>';
-  }finally{
-    document.getElementById('loadingMsg').style.display='none';
-    document.getElementById('runBtn').disabled=false;
-  }
+const text=document.getElementById('userInput').value.trim();
+if(!text){alert('入力してください');return;}
+document.getElementById('loadingMsg').style.display='inline';document.getElementById('runBtn').disabled=true;
+try{
+let r;
+if(gasUrl.includes('AKfycbzfs9l')){
+const custom=BASE_CATEGORIES.map(c=>({label:c.label,subs:c.baseSubs}));
+const data=await gasCall({action:'analyze',content:text,customCategories:custom});
+r=data.result||{};
+}else{
+let big=/防犯|パトロール|腕章/.test(text)?'防災・防犯':/松並木|釣り|ゴミ|景観|眺め|ハルカス/.test(text)?'インフラ・環境':'コミュニティ';
+let mid=BASE_CATEGORIES.find(c=>c.label===big).baseSubs[0];
+r={'大分類':big,'中分類':mid,'推奨タイトル':text.slice(0,24),'要約200':text.slice(0,200),'核心':'本質: '+text.slice(0,60),'変化':'安心で綺麗な町になり、住民の憩いの場が守られます','成功事例':'他地域で清掃活動や腕章で防犯効果向上','懸念点':'負担にならないよう配慮が必要','問い':'このアイデアをみんなで続けるには？'};
+}
+document.getElementById('slip').innerHTML=`
+<div style="background:#e8f5e9;border:2px solid #2f7a6b;border-radius:8px;padding:12px;margin-bottom:12px;">
+<div style="font-weight:800;color:#2f7a6b;">✅ 「${escapeHtml(r['大分類'])} / ${escapeHtml(r['中分類'])}」に分類</div>
+<div style="font-size:12px;margin-top:4px;">📌 格納先：ホーム「${escapeHtml(r['大分類'])}」→「${escapeHtml(r['中分類'])}」と声のボードに保存。Instagramにも自動投稿されます。</div>
+</div>
+<div style="background:#fff;border:1px solid #d8dcc9;border-radius:8px;padding:12px;margin-bottom:10px;">
+<div style="font-size:11px;font-weight:800;color:#c9821f;">タイトル</div><div style="font-weight:800;">${escapeHtml(r['推奨タイトル'])}</div>
+<div style="font-size:11px;font-weight:800;color:#2f7a6b;margin-top:8px;">要約</div><div style="font-size:13px;background:#f9f9f6;padding:8px;border-radius:6px;">${escapeHtml(r['要約200'])}</div>
+</div>
+<div style="display:grid;gap:8px;">
+<div style="background:#eef0e4;border-left:4px solid #2f7a6b;padding:10px;border-radius:6px;"><div style="font-size:11px;font-weight:800;color:#2f7a6b;">① 核心</div><div style="font-size:13px;">${escapeHtml(r['核心'])}</div></div>
+<div style="background:#eef0e4;border-left:4px solid #e8a33d;padding:10px;border-radius:6px;"><div style="font-size:11px;font-weight:800;color:#c9821f;">② 変化</div><div style="font-size:13px;">${escapeHtml(r['変化'])}</div></div>
+<div style="background:#eef0e4;border-left:4px solid #6d5aa8;padding:10px;border-radius:6px;"><div style="font-size:11px;font-weight:800;color:#6d5aa8;">③ 成功事例</div><div style="font-size:13px;">${escapeHtml(r['成功事例'])}</div></div>
+<div style="background:#eef0e4;border-left:4px solid #c1502f;padding:10px;border-radius:6px;"><div style="font-size:11px;font-weight:800;color:#c1502f;">④ 懸念点</div><div style="font-size:13px;">${escapeHtml(r['懸念点'])}</div></div>
+<div style="background:#fff8e1;border-left:4px solid #23282a;padding:10px;border-radius:6px;"><div style="font-size:11px;font-weight:800;">⑤ 問い</div><div style="font-size:13px;font-weight:700;">${escapeHtml(r['問い'])}</div></div>
+</div>
+<div style="margin-top:12px;text-align:center;"><button class="big-btn amber" onclick="postIdeaFromAI()">📌 声のボードに投稿する</button></div>`;
+window._lastAI=r;window._lastRaw=text;
+}catch(e){document.getElementById('slip').innerHTML='<p style="color:red;">失敗:'+escapeHtml(e.message)+'</p>';}
+finally{document.getElementById('loadingMsg').style.display='none';document.getElementById('runBtn').disabled=false;}
 }
 function postIdeaFromAI(){
-  const r=window._lastAI;
-  const raw=window._lastRaw;
-  if(!r) return;
-  const newIdea={ big: BASE_CATEGORIES.find(c=>c.label===r['大分類'])?.key || 'BIG-3', mid: r['中分類']||'世代間交流', title: r['推奨タイトル']||raw.slice(0,20), summary: r['要約200']||raw, raw: raw };
-  SEED_IDEAS.unshift(newIdea);
-  document.getElementById('userInput').value='';
-  document.getElementById('slip').innerHTML='<div style="color:#2f7a6b;font-weight:800;">✅ 声のボードに投稿しました！</div>';
-  setTimeout(()=>{ showPage('tree', document.querySelectorAll('nav button')[2]); }, 800);
+const r=window._lastAI;const raw=window._lastRaw;if(!r)return;
+const newIdea={big:BASE_CATEGORIES.find(c=>c.label===r['大分類'])?.key||'BIG-3',mid:r['中分類']||'世代間交流',title:r['推奨タイトル']||raw.slice(0,20),summary:r['要約200']||raw};
+SEED_IDEAS.unshift(newIdea);
+document.getElementById('userInput').value='';
+document.getElementById('slip').innerHTML='<div style="color:#2f7a6b;font-weight:800;">✅ 投稿しました！声のボードの「'+escapeHtml(r['大分類'])+'」に格納されました。Instagramにも自動投稿されます。</div>';
+setTimeout(()=>{showPage('tree',document.querySelectorAll('nav button')[2]);renderBoard();},800);
 }
-
-
 document.addEventListener("DOMContentLoaded",()=>{
-  renderMapUpdate();
-  renderBoard();
-  renderHiroba();
-  const imgEl=document.getElementById('hirobaImage');
-  if(imgEl){
-    imgEl.addEventListener('change', e=>{
-      const file=e.target.files[0]; if(!file) return;
-      const reader=new FileReader();
-      reader.onload=ev=>{ hirobaImageBase64=ev.target.result.split(',')[1]; document.getElementById('hirobaImagePreview').innerHTML='<img src="'+ev.target.result+'" style="width:100%;max-height:200px;object-fit:cover;border-radius:8px;">'; };
-      reader.readAsDataURL(file);
-    });
-  }
-  // localStorageから復元
-  try{ const saved=JSON.parse(localStorage.getItem('suzukaze_hiroba')||"[]"); if(saved.length>0){ hirobaPosts=[...saved, ...MOCK_HIROBA]; renderHiroba(); } }catch(e){}
+renderMapUpdate();renderBoard();renderHiroba();
+const imgEl=document.getElementById('hirobaImage');
+if(imgEl){imgEl.addEventListener('change',e=>{const file=e.target.files[0];if(!file)return;const reader=new FileReader();reader.onload=ev=>{hirobaImageBase64=ev.target.result.split(',')[1];document.getElementById('hirobaImagePreview').innerHTML='<img src="'+ev.target.result+'" style="width:100%;max-height:200px;object-fit:cover;border-radius:8px;">';};reader.readAsDataURL(file);});}
 });
 </script>
 </body>
